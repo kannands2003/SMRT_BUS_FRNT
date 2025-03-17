@@ -130,3 +130,52 @@
     background-color: #c62828;
   }
   
+  .route-map-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+  }
+  
+  .stop {
+    position: relative;
+    padding: 10px 20px;
+    background-color: #ddd;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #333;
+    margin: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .stop.completed {
+    background-color: #4caf50; /* green */
+    color: white;
+  }
+  
+  .stop.current {
+    background-color: #ff9800; /* orange */
+    color: white;
+    animation: blink 1s infinite;
+  }
+  
+  .stop.upcoming {
+    background-color: #2196f3; /* blue */
+    color: white;
+  }
+  
+  .line {
+    width: 30px;
+    height: 4px;
+    background-color: #999;
+    margin: 0 5px;
+    display: inline-block;
+  }
+  
+  @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+  }
+  

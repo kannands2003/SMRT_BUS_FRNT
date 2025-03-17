@@ -8,11 +8,15 @@ const Dashboard = () => {
   const [userDetails, setUserDetails] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(user?.name);
-  const [showDropdown, setShowDropdown] = useState(false); // dropdown toggle
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  // Route stops and static current stop set to CEC
+  const stops = ["CEC", "PALLIPURAM", "THYKATTUSERRY", "HOME"];
+  const currentStop = "CEC"; // Always blink on this
 
   useEffect(() => {
     if (user?.role === "admin") {
-      fetch("https://smartbus-backend.onrender.com/auth/users")
+      fetch("http://localhost:3000/auth/users")
         .then((res) => res.json())
         .then((data) => setAllUsers(data))
         .catch((error) => console.error("Error fetching users:", error));
@@ -22,7 +26,7 @@ const Dashboard = () => {
   useEffect(() => {
     if (!selectedUser) return;
 
-    fetch("https://smartbus-backend.onrender.com/udetails/me", {
+    fetch("http://localhost:3000/udetails/me", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: selectedUser }),
@@ -49,7 +53,26 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      {/* Profile avatar with toggle dropdown */}
+      {/* Route Map */}
+      <div className="route-map-container">
+        {stops.map((stop, index) => {
+          const isCurrent = stop === currentStop;
+          const isCompleted = false; // No completed logic since CEC is always current
+          const isUpcoming = stop !== currentStop;
+
+          return (
+            <div
+              key={stop}
+              className={`stop ${isCompleted ? "completed" : ""} ${isCurrent ? "current" : ""} ${isUpcoming ? "upcoming" : ""}`}
+            >
+              {stop}
+              {index < stops.length - 1 && <span className="line" />}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Profile avatar */}
       <div className="profile-container">
         <div className="profile-avatar" onClick={toggleDropdown}>
           {user?.name?.charAt(0).toUpperCase()}
@@ -63,8 +86,10 @@ const Dashboard = () => {
 
       <div className="dashboard-header">
         <div className="user-info">
-          <h2><strong>Welcome </strong>{user?.name}</h2>
-         
+          <h2>
+            <strong>Welcome </strong>
+            {user?.name}
+          </h2>
         </div>
       </div>
 

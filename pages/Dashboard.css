@@ -1,0 +1,132 @@
+/* Dashboard.css */
+
+.dashboard-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f8fafc; /* Light background */
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: sans-serif;
+  }
+  .dashboard-container h3{
+    font-size: 3rem;
+    color: rgb(128, 129, 125);
+    margin-left: 14rem;
+    font-family: cursive;
+    text-decoration: underline;
+  }
+  
+  .dashboard-header {
+    margin-bottom: 2rem;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 6rem;
+    color: #74d4f4;
+     margin-left: 17rem;
+    text-decoration: underline;
+  }
+  
+  .user-info h2 {
+    font-size: 4rem;
+    font-family:serif;
+    margin-left: 17rem;
+  }
+  .user-info p {
+    margin: 0.25rem 0;
+    color: #475569;
+  }
+  
+  .user-select {
+    margin-bottom: 1.5rem;
+  }
+  
+  .user-select label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+    color: #334155;
+  }
+  
+  .user-select select {
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    border: 1px solid #cbd5e1;
+  }
+  
+  .attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  .attendance-table th,
+  .attendance-table td {
+    padding: 0.75rem 1rem;
+    border: 1px solid #cbd5e1;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+  
+  .attendance-table th {
+    background-color: #e2e8f0;
+    color: #1e293b;
+  }
+  
+  .attendance-table img {
+    border-radius: 0.375rem;
+    object-fit: cover;
+  }
+  
+
+  .profile-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+  }
+  
+  .profile-avatar {
+    background-color: #4a90e2;
+    color: white;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    font-size: 18px;
+    position: relative;
+  }
+  
+  .dropdown-content {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    min-width: 100px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    z-index: 999;
+  }
+  
+  .dropdown-content button {
+    background-color: #e53935;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+  }
+  
+  .dropdown-content button:hover {
+    background-color: #c62828;
+  }
+  

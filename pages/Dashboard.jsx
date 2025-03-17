@@ -16,7 +16,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (user?.role === "admin") {
-      fetch("http://localhost:3000/auth/users")
+      fetch("https://smartbus-backend.onrender.com/auth/users")
         .then((res) => res.json())
         .then((data) => setAllUsers(data))
         .catch((error) => console.error("Error fetching users:", error));
@@ -26,7 +26,7 @@ const Dashboard = () => {
   useEffect(() => {
     if (!selectedUser) return;
 
-    fetch("http://localhost:3000/udetails/me", {
+    fetch("https://smartbus-backend.onrender.com/udetails/me", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: selectedUser }),
